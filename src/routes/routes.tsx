@@ -4,6 +4,7 @@ import SubmitRequest from "../pages/SubmitRequest/SubmitRequest";
 import MainLayout from "../components/layout/MainLayout";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import JobDetails from "../pages/JobDetails/JobDetails";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/jobs/:id",
+        element: <JobDetails />,
       },
       {
         path: "/submit-request",
