@@ -1,9 +1,19 @@
 import { AreaChartOutlined } from "@ant-design/icons";
 import { Layout, Button } from "antd";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import { useAppDispatch } from "../../redux/hooks";
+import { logout,  } from "../../redux/features/auth/authSlice";
 const { Header } = Layout;
 
 const NavbarComponent = () => {
+  const dispatch = useAppDispatch();
+  
+
+  const handleLogout = () => {
+    toast.success("User logged out successfully!");
+    dispatch(logout());
+  };
   return (
     <Header
       style={{
@@ -23,11 +33,14 @@ const NavbarComponent = () => {
         </Link>
       </div>
 
-      <Link to="/login">
+      {<Link to="/login">
         <Button type="default" ghost>
           Login
         </Button>
-      </Link>
+        
+        <Button className="bg-white" onClick={handleLogout}>Logout</Button>
+        
+      </Link>}
     </Header>
   );
 };
