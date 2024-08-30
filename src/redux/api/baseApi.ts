@@ -5,6 +5,6 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://help-center-liart.vercel.app/api/",
   }),
-  tagTypes: ["card"],
+  tagTypes: ["Users", "card"],
   endpoints: () => ({}),
 });

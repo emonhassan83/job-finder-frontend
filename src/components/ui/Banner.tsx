@@ -17,7 +17,7 @@ const Banner = ({setSearchTerm}: any) => {
       }}
     >
       <h2 style={{fontSize: "48px", fontWeight: "600", color: "#333", marginTop: "0px" }}>
-        How can we help?
+        Find Your Dream Job?
       </h2>
 
       <div style={{ width: "100%", maxWidth: "500px" }}>

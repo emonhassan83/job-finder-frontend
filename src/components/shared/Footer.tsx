@@ -47,7 +47,7 @@ const FooterComponent = () => {
             <li>Legal</li>
 
             <li style={{ marginTop: "10px", fontWeight: "600" }}>Contact Us</li>
-            <li>info@abstract.com</li>
+            <li>info@jobfinder.com</li>
           </ul>
         </Col>
 
@@ -55,7 +55,7 @@ const FooterComponent = () => {
         <Col xs={24} lg={8} style={{ textAlign: "right", marginTop: 20 }}>
         <AreaChartOutlined style={{ fontSize: 40 }} />
           <p>
-            © Copyright {new Date().getFullYear()} <br /> Abstract Studio Design, Inc. All rights
+            © Copyright {new Date().getFullYear()} <br /> Job Finder Studio Design, Inc. All rights
             reserved.
           </p>
         </Col>
