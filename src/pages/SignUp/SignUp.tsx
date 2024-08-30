@@ -2,9 +2,18 @@ import { Button, Col, Row } from "antd";
 import { FieldValues } from "react-hook-form";
 import JobFinderFrom from "../../components/form/JobFinderForm";
 import JobFinderInput from "../../components/form/JobFinderInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { useSaveUserMutation } from "../../redux/features/auth/authApi";
+import { useAppDispatch } from "../../redux/hooks";
+import { verifyToken } from "../../utils/verifyToken";
+import { setUser } from "../../redux/features/auth/authSlice";
 
 const SignUp = () => {
+  const [saveUser] = useSaveUserMutation();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const defaultValues = {
     name: "",
     email: "",
@@ -14,7 +23,28 @@ const SignUp = () => {
   };
 
   const onSubmit = async (data: FieldValues) => {
-    console.log(data);
+    const toastId = toast.loading("User sign in!");
+
+    try {
+      //* Save to db and wait for the response
+      const res = await saveUser(data).unwrap();
+      console.log("register user: ", res);
+
+      const user = verifyToken(res.data.accessToken);
+
+      if (res.success) {
+        dispatch(setUser({ user: user, token: res?.data?.accessToken }));
+        navigate("/");
+
+        toast.success("User sign up successfully!", {
+          id: toastId,
+          duration: 2000,
+        });
+      }
+    } catch (error: any) {
+      toast.error(error.message, { id: toastId });
+      console.error(error.message);
+    }
   };
   return (
     <div

@@ -2,13 +2,18 @@ import { AreaChartOutlined } from "@ant-design/icons";
 import { Layout, Button } from "antd";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
-import { useAppDispatch } from "../../redux/hooks";
-import { logout,  } from "../../redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { logout, useCurrentToken } from "../../redux/features/auth/authSlice";
+import { verifyToken } from "../../utils/verifyToken";
 const { Header } = Layout;
 
 const NavbarComponent = () => {
   const dispatch = useAppDispatch();
-  
+  const token = useAppSelector(useCurrentToken);
+  let user;
+  if (token) {
+    user = verifyToken(token);
+  }
 
   const handleLogout = () => {
     toast.success("User logged out successfully!");
@@ -26,21 +31,24 @@ const NavbarComponent = () => {
         <Link to="/">
           <div className="demo-logo" style={{ marginRight: 16 }}>
             <span style={{ color: "white", fontSize: 14 }}>
-            <AreaChartOutlined style={{ fontSize: 18, marginRight: "5px" }} />
+              <AreaChartOutlined style={{ fontSize: 18, marginRight: "5px" }} />
               Job Finder
             </span>
           </div>
         </Link>
       </div>
 
-      {<Link to="/login">
-        <Button type="default" ghost>
-          Login
+      {user ? (
+        <Button className="bg-white" onClick={handleLogout}>
+          Logout
         </Button>
-        
-        <Button className="bg-white" onClick={handleLogout}>Logout</Button>
-        
-      </Link>}
+      ) : (
+        <Link to="/login">
+          <Button type="default" ghost>
+            Login
+          </Button>
+        </Link>
+      )}
     </Header>
   );
 };
