@@ -16,8 +16,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const defaultValues = {
-    email: "alice@example.com",
-    password: "user123",
+    email: "",
+    password: "",
   };
 
   const onSubmit = async (data: FieldValues) => {

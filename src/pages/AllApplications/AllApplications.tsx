@@ -6,6 +6,7 @@ import {
 import { TApplication, TQueryParam } from "../../types";
 import { Button, Pagination, Table, TableColumnsType, TableProps } from "antd";
 import { toast } from "sonner";
+import UpdateApplicationStatusModal from "../../components/dialoag/UpdateApplicationStatus";
 
 export type TTableData = Pick<TApplication, "status"> & {
   key: string;
@@ -50,11 +51,6 @@ const AllApplications = () => {
       }
   };
 
-  const handleUpdateApplication = async (id: string) => {
-    console.log(id);
-    
-  };
-
   const columns: TableColumnsType<TTableData> = [
     {
       title: "Applicant Name",
@@ -77,19 +73,16 @@ const AllApplications = () => {
       dataIndex: "status",
     },
     {
-      title: "Update Status",
-      key: "action",
-      render: (item) => (
-        <Button
-          onClick={() => handleUpdateApplication(item.key)}
-          type="link"
-          size="small"
-          style={{ fontSize: "12px", fontWeight: "600" }}
-        >
-          Update
-        </Button>
-      ),
-    },
+        title: "Update Status",
+        key: "x2",
+        render: (item) => {
+          return (
+            <div>
+              <UpdateApplicationStatusModal application={item} />
+            </div>
+          );
+        },
+      },
     {
       title: "Action",
       key: "action",

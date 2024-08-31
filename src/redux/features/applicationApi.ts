@@ -57,11 +57,11 @@ const applicationApi = baseApi.injectEndpoints({
     }),
 
     updateAApplication: builder.mutation({
-      query: ({ applicationId, applicationData }) => {
+      query: (option) => {
         return {
-          url: `/applications/${applicationId}`,
+          url: `/applications/${option.id}`,
           method: "PUT",
-          body: applicationData,
+          body: option.data,
         };
       },
       invalidatesTags: ["Application"],
