@@ -1,31 +1,73 @@
-# React + TypeScript + Vite
+### job-finder-frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Job Finder Frontend is a platform designed to manage various aspects of job applications, tailored for different roles like admin, seller, and buyer. It includes a comprehensive Job Management Dashboard to efficiently handle job postings, applications, and user interactions. The project is built using React, MongoDB, Mongoose, Node.js, Tailwind CSS, Shadcn, Redux, Sonner, and React Hook Form.
 
-Currently, two official plugins are available:
+## Main Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Admin
 
-## Expanding the ESLint configuration
+- **Job Application Management**
+  - Manage All jobs Applicant
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### User
 
-- Configure the top-level `parserOptions` property like this:
+- **Job Management**
+  - View and search available jobs
+  - Apply any jobs
+  - Confirm or delete apply
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## ReactJS Default Guide (Updated)
+
+This is a [vitejs.dev](https://vitejs.dev/) project bootstrapped with [vite-react-app](https://github.com/vitejs/vite).
+
+## Getting Started
+
+### Instruction
+
+1. Clone the repo:
+
+```bash
+   https://github.com/emonhassan83/job-finder-frontend
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# job-finder-frontend
+2. Go to App Directory:
+
+```bash
+   cd Help-Center-API-Assignment
+```
+
+#### Setup Frontend
+
+1. Go to frontend directory:
+
+```bash
+   cd job-finder-frontend
+```
+
+2. Install Dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+#### Debugging
+
+1. Run the development server:
+
+```bash
+npm run dev
+```
+
+2. Then run `Launch Chrome against localhost` in `Run and Debug` tab in VSCode
+
+#### Project live site link: https://aquamarine-platypus-c2123a.netlify.app/

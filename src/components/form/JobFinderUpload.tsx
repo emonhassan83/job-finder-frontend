@@ -26,7 +26,7 @@ const JobFinderUpload = ({ name, label, onFileUpload }: TUploadProps) => {
             {...field}
             name={name}
             
-            customRequest={({ file, onSuccess }) => {
+            customRequest={({ onSuccess }) => {
               setTimeout(() => {
                 //@ts-ignore
                 onSuccess("ok");

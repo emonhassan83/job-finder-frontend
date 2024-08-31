@@ -6,6 +6,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import JobDetails from "../pages/JobDetails/JobDetails";
 import MyApplication from "../pages/MyApplication/MyApplication";
 import AllApplications from "../pages/AllApplications/AllApplications";
+import ProtectedRoute from "../components/layout/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -18,15 +19,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/jobs/:id",
-        element: <JobDetails />,
+        element: (
+          <ProtectedRoute>
+            <JobDetails />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/my-application",
-        element: <MyApplication />,
+        element: (
+          <ProtectedRoute>
+            <MyApplication />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/all-applications",
-        element: <AllApplications />,
+        element: (
+          <ProtectedRoute>
+            <AllApplications />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
