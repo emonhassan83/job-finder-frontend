@@ -1,11 +1,24 @@
 import { Card, Avatar, Typography, Row, Col, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import JobApplicationModal from "../../../components/dialoag/JobApplicationModal";
+import { useGetMyProfileQuery } from "../../../redux/features/userApi";
 
 const { Text } = Typography;
 
-const JobPoster = ({ user }: any) => {
+const JobPoster = ({ user, jobId }: any) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { data } = useGetMyProfileQuery({});
+
+  const currentUser = data?.data;
+
   return (
     <>
+      <JobApplicationModal
+        open={isModalOpen}
+        setOpen={setIsModalOpen}
+        jobId={jobId}
+      />
       <Card title="Job Poster" bordered={false} style={{ marginTop: "40px" }}>
         <Row>
           <Col span={4}>
@@ -31,7 +44,8 @@ const JobPoster = ({ user }: any) => {
         type="primary"
         size="large"
         style={{ marginTop: "20px" }}
-        // onClick={onApply}
+        onClick={() => setIsModalOpen(true)}
+        disabled={currentUser?.role !== "USER"}
       >
         Apply Now
       </Button>

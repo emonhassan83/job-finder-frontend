@@ -10,7 +10,7 @@ type TInputProps = {
   width?: string;
 };
 
-const HelpTextArea = ({
+const JobFinderTextArea = ({
   rows = 3,
   name,
   label,
@@ -37,4 +37,4 @@ const HelpTextArea = ({
   );
 };
 
-export default HelpTextArea;
+export default JobFinderTextArea;

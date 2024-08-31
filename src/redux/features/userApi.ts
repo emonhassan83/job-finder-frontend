@@ -1,7 +1,6 @@
 import { TQueryParam, TResponseRedux, TUser } from "../../types";
 import { baseApi } from "../api/baseApi";
 
-
 const userApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getUsers: builder.query({
@@ -28,6 +27,16 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["Users"],
     }),
 
+    getMyProfile: builder.query({
+        query: () => {
+          return {
+            url: "/user/profile",
+            method: "GET",
+          };
+        },
+        providesTags: ["Users"],
+      }),
+
     changeUserRole: builder.mutation({
         query: (userInfo) => {
           return {
@@ -52,4 +61,4 @@ const userApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetUsersQuery, useChangeUserRoleMutation, useDeleteUserMutation } = userApi;
+export const { useGetUsersQuery, useGetMyProfileQuery, useChangeUserRoleMutation, useDeleteUserMutation } = userApi;

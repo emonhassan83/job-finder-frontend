@@ -22,7 +22,7 @@ const JobDetails = () => {
         <JobHeader job={job} />
         <Divider />
         <JobDescription job={job} />
-        <JobPoster user={job?.user} />
+        <JobPoster user={job?.user} jobId={job.id} />
         <RelatedJobs id={id} />
     </div>
     );
