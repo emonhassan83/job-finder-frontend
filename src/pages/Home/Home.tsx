@@ -11,7 +11,6 @@ const Home = () => {
     { name: "page", value: page },
     { name: "searchTerm", value: searchTerm },
   ]);
-  console.log(data);
 
   if (isLoading) {
     return <FullPageLoading />;

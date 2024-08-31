@@ -8,6 +8,7 @@ import { useAppDispatch } from "../../redux/hooks";
 import { toast } from "sonner";
 import { setUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
+import ShowCredentialButton from "../../components/buttons/ShowCredentialButton";
 
 const Login = () => {
   const [login] = useLoginMutation();
@@ -96,7 +97,7 @@ const Login = () => {
             </Button>
             <Divider style={{ borderColor: "#5e5e5e" }}>OR</Divider>
 
-            {/* <ShowCredentialButton /> */}
+            <ShowCredentialButton />
             <p
               style={{
                 fontSize: "12px",
