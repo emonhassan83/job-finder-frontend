@@ -29,14 +29,24 @@ const NavbarComponent = () => {
     >
       <div style={{ display: "flex", alignItems: "center" }}>
         <Link to="/">
-          <div className="demo-logo" style={{ marginRight: 16 }}>
+          <div>
             <span style={{ color: "white", fontSize: 14 }}>
               <AreaChartOutlined style={{ fontSize: 18, marginRight: "5px" }} />
               Job Finder
             </span>
           </div>
         </Link>
+
       </div>
+        {(user as any)?.role === "USER" ? (
+          <Link to="/my-application">
+            <p style={{ color: "white", fontSize: 14 }}>My Application</p>
+          </Link>
+        ) : (
+          <Link to="/all-applications">
+            <p style={{ color: "white", fontSize: 14 }}>All Application</p>
+          </Link>
+        )}
 
       {user ? (
         <Button className="bg-white" onClick={handleLogout}>

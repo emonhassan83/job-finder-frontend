@@ -38,7 +38,6 @@ const JobApplicationModal = ({ open, setOpen, jobId }: any) => {
   };
 
   const handleFileUpload = async (file: File) => {
-    toast.loading("File uploading in!");
     try {
       const imageUrl = await uploadImageToImgbb(file);
 
@@ -60,12 +59,14 @@ const JobApplicationModal = ({ open, setOpen, jobId }: any) => {
       };
       const res = await createApplication(applicationData).unwrap();
       // console.log(res);
-      
+
       if (res.success) {
         toast.success("Submit application successfully!", {
           id: toastId,
           duration: 2000,
         });
+
+        setOpen(false);
       }
     } catch (error: any) {
       toast.error(error.message, { id: toastId });

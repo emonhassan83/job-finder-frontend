@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home/Home";
-import SubmitRequest from "../pages/SubmitRequest/SubmitRequest";
 import MainLayout from "../components/layout/MainLayout";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import JobDetails from "../pages/JobDetails/JobDetails";
+import MyApplication from "../pages/MyApplication/MyApplication";
+import AllApplications from "../pages/AllApplications/AllApplications";
 
 const router = createBrowserRouter([
   {
@@ -20,11 +21,14 @@ const router = createBrowserRouter([
         element: <JobDetails />,
       },
       {
-        path: "/submit-request",
-        element: <SubmitRequest />,
+        path: "/my-application",
+        element: <MyApplication />,
+      },
+      {
+        path: "/all-applications",
+        element: <AllApplications />,
       },
     ],
-    
   },
   {
     path: "/login",
